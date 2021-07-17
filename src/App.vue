@@ -2,15 +2,17 @@
   <h1>Ninja Reaction Timer</h1>
   <button @click="start" :disabled="isPlaying">Play</button>
   <Block v-if="isPlaying" :delay="delay" @end="endGame" />
-  <p v-if="showResult"> Reaction time : {{ score }}</p>
+  <Result v-if="showResult" :score="score"  />
 </template>
 
 <script>
 import Block from './components/Block.vue'
+import Result from './components/Results.vue'
+
 
 export default {
   name: 'App',
-  components: { Block },
+  components: { Block, Result },
   data(){
     return {
       isPlaying: false,
